@@ -1,0 +1,1 @@
+rootProject.name = "TPO7_MN_S31677"
