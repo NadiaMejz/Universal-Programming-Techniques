@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz zwierzęcia</title>
+</head>
+<body>
+
+<h1>Dodaj lub edytuj zwierzę</h1>
+
+<form th:action="@{/web/save}" th:object="${animal}" method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Imię:</label><br/>
+    <input type="text" th:field="*{name}" /><br/><br/>
+
+    <label>Wiek:</label><br/>
+    <input type="number" th:field="*{age}" /><br/><br/>
+
+    <label>Gatunek:</label><br/>
+    <input type="text" th:field="*{species}" /><br/><br/>
+
+    <button type="submit">Zapisz</button>
+</form>
+
+<br/>
+<a href="/web/list">Powrót do listy</a>
+
+</body>
+</html>

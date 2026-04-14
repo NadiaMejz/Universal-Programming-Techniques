@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista zwierząt</title>
+</head>
+<body>
+
+<h1>Lista wszystkich zwierząt</h1>
+
+<a href="/web/add">Dodaj nowe zwierzę</a>
+<br/><br/>
+
+<a href="/web/list/sorted/name">Posortuj po nazwie</a>
+<br/><br/>
+
+<a href="/web/list/sorted/age">Posortuj po wieku</a>
+<br/><br/>
+
+<a href="/web/list/sorted/species">Posortuj po gatunku</a>
+<br/><br/>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Imię</th>
+        <th>Wiek</th>
+        <th>Gatunek</th>
+        <th>Akcje</th>
+    </tr>
+
+    <tr th:each="animal : ${animals}">
+        <td th:text="${animal.id}">Tutaj id</td>
+        <td th:text="${animal.name}">Tutaj imię</td>
+        <td th:text="${animal.age}">Tutaj wiek</td>
+        <td th:text="${animal.species}">Tutaj gatunek</td>
+        <td>
+            <a th:href="@{'/web/edit/' + ${animal.id}}">Edytuj</a>
+
+            <a th:href="@{'/web/delete/' + ${animal.id}}" onclick="return confirm('Czy na pewno chcesz usunąć to zwierzę?');">Usuń</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
